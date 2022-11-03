@@ -17,7 +17,7 @@ on:
       source:
         description: "Specific Procursus repository (e.g ProcursusTeam/Procursus)"
         required: false
-        default: "ProcursusTeam/Procursus"
+        default: "flashcel/Procursus"
       branch:
         description: "Branch in source to checkout"
         required: false
@@ -44,6 +44,10 @@ jobs:
 
       - name: Setup Procursus
         uses: beerpiss/procursus-action@v1.4.1
+        with:
+          packages: odcctools autoconf automake autopoint bash bison cmake curl docbook-xml docbook-xsl fakeroot findutils flex gawk git gnupg groff grep gzip ldid ld64 libtool make ncurses-bin openssl patch pkg-config po4a python3 sed tar triehash xz-utils zstd
+          cache: true
+          mirror: 'https://procursus.itsnebula.net/'
 
       - name: Build
         run: |
